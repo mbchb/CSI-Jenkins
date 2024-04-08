@@ -15,7 +15,12 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'http://github.com/mbchb/CSI-Jenkins.git'
+                script{
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        credentialsId: 'github-token', 
+                        url: 'https://github.com//mbchb/CSI-Jenkins.git' ]]])
+                }
             }
         }
         stage("Sonarqube Analysis "){
