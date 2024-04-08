@@ -54,5 +54,21 @@ pipeline{
                 sh "trivy fs . > trivyfs.txt"
             }
         }
+        stage("Docker Build & Push"){
+            steps{
+                script{
+                   withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){ 
+                       sh "docker build -t CSI ."
+                       sh "docker tag CSI mchebbii/CSI:latest "
+                       sh "docker push mchebbii/CSI:latest "
+                    }
+                }
+            }
+        }
+        stage("TRIVY"){
+            steps{
+                sh "trivy image mchebbii/CSI:latest > trivy.txt" 
+            }
+        }
     }
 }
