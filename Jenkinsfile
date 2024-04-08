@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'https://github.com/mbchb/CSI-Jenkins.git'
+                git branch: 'main', url: 'http://github.com/mbchb/CSI-Jenkins.git'
             }
         }
         stage("Sonarqube Analysis "){
