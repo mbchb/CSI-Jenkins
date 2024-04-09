@@ -58,11 +58,6 @@ pipeline{
             steps{
                 script{
                    withDockerRegistry(url: 'https://hub.docker.com/u/mchebbii', credentialsId: 'dockerhub'){ 
-                        sh "docker build -t your-image-name ."
-                        sh "docker push your-username/your-image-name:latest"
-                    }
-                }
-            }
                        sh "docker build -t CSI ."
                        sh "docker tag CSI mchebbii/CSI:latest "
                        sh "docker push mchebbii/CSI:latest "
