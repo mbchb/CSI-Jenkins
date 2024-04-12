@@ -57,7 +57,7 @@ pipeline{
         stage("Docker Build & Push"){
             steps{
                 script{
-                    withDockerRegistry('https://registry.example.com', 'dockerhub'){ 
+                    withDockerRegistry('https://registry.hub.docker.com', 'dockerhub'){ 
                        sh "docker build -t CSI ."
                        sh "docker tag CSI mchebbii/CSI:latest "
                        sh "docker push mchebbii/CSI:latest "
