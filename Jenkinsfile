@@ -58,6 +58,7 @@ pipeline{
             steps{
                 script{
                     withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){ 
+                       sh "sudo chmod 666 /var/run/docker.sock"
                        sh "docker build -t csi ."
                        sh "docker tag csi mchebbii/csi:latest "
                        sh "docker push mchebbii/csi:latest "
