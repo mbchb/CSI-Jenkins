@@ -58,9 +58,9 @@ pipeline{
             steps{
                 script{
                     withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){ 
-                       sh "sudo docker build -t csi ."
-                       sh "sudo docker tag csi mchebbii/csi:latest "
-                       sh "sudo docker push mchebbii/csi:latest "
+                       sh "docker build -t csi ."
+                       sh "docker tag csi mchebbii/csi:latest "
+                       sh "docker push mchebbii/csi:latest "
                     }
                 }
             }
