@@ -59,7 +59,7 @@ pipeline{
                 script{
                     withDockerRegistry('https://registry.hub.docker.com', 'dockerhub'){ 
                        sh "docker build -t csi ."
-                       sh "docker tag CSI mchebbii/csi:latest "
+                       sh "docker tag csi mchebbii/csi:latest "
                        sh "docker push mchebbii/csi:latest "
                     }
                 }
