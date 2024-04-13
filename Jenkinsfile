@@ -67,7 +67,7 @@ pipeline{
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image mchebbii/CSI:latest > trivy.txt" 
+                sh "trivy image mchebbii/csi:latest > trivy.txt" 
             }
         }
     }
